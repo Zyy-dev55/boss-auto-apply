@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">投</div>
+      <div class="meta">
+        <h1>批量投递助手</h1>
+        <p id="pageState">检测中…</p>
+      </div>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><b id="today">0</b><span>今日已投</span></div>
+      <div class="stat"><b id="limit">150</b><span>每日上限</span></div>
+      <div class="stat"><b id="state">—</b><span>状态</span></div>
+    </div>
+
+    <div class="tip" id="tip">请先在 BOSS 直聘打开职位列表页，面板会出现在右下角。</div>
+
+    <div style="display:flex;align-items:center;gap:6px;margin:9px 0 2px;font-size:11px;color:#6b7686">
+      <span id="aiState" style="flex:1">AI 语义判断：未启用</span>
+      <button id="permBtn" class="btn ghost" style="width:auto;flex:none;padding:5px 9px;font-size:10px" title="自定义接口地址需要在这里授权一次">授权接口</button>
+    </div>
+
+    <div class="actions">
+      <button id="mainBtn" class="btn primary" disabled>开始</button>
+      <button id="recordsBtn" class="btn ghost">记录</button>
+      <button id="openBtn" class="btn ghost">面板</button>
+    </div>
+
+    <footer>
+      <a href="https://www.zhipin.com/web/geek/job" target="_blank">打开职位搜索</a>
+      <span>·</span>
+      <span>间隔投递，避免风控</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

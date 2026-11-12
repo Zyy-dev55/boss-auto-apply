@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "BOSS 直聘 · 批量投递助手",
+  "version": "1.12.0",
+  "description": "BOSS 直聘批量投递助手：逐个点开当前岗位卡片，以「去APP与BOSS随时沟通」为截止滚动读完 JD 全文再判断；被动读取页面接口明文数据，手填专业与勾选编程语言作为硬条件，可选接入大模型语义判断，公司 ID 精确去重，记录自动成表。",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.zhipin.com/*",
+    "https://api.deepseek.com/*",
+    "https://api.moonshot.cn/*",
+    "https://*.aliyuncs.com/*",
+    "https://open.bigmodel.cn/*",
+    "https://api.siliconflow.cn/*",
+    "https://api.openai.com/*",
+    "https://api.hunyuan.cloud.tencent.com/*",
+    "https://*.volces.com/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "批量投递助手"
+  },
+  "background": {
+    "service_worker": "background/worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.zhipin.com/*"
+      ],
+      "js": [
+        "content/bridge-inject.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://*.zhipin.com/*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/page-bridge.js"
+      ],
+      "matches": [
+        "https://*.zhipin.com/*"
+      ]
+    }
+  ]
+}

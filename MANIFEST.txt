@@ -1,0 +1,31 @@
+BOSS 直聘 · 批量投递助手 便携包文件清单
+版本: 1.12.0
+打包时间: 2026-11-12 09:02
+文件数: 15（不含本清单）
+
+下面是每个文件的字节数与 SHA-256，用来确认下载 / 解压后文件完整。
+清单自身不列入。
+
+⚠ 公共电脑提醒：不要填写 AI API Key、不要让浏览器记住密码、
+   离机前导出 CSV 并移除扩展。详见「使用说明.html」。
+
+文件                                               字节  SHA-256
+--------------------------------------------------------------------------------------------------------------
+boss-auto-apply/manifest.json                  1626  84f2cf958b4cf84b9c90421593216e5c759e2df2c0f19e27d23257724a618606
+boss-auto-apply/LICENSE                        1085  73e1f357668b15d66bfc6f8164e00bbc5d52e66d1ba7ceb4ff3258ae57e81394
+boss-auto-apply/使用说明.html                     13996  421fd488d0b09b700dee07429f7c83bb7521f2ed49eb7315b26468c1e1a754cc
+boss-auto-apply/使用说明.md                        6201  bb3c59934eaa43ff6149cf26e61f83fd5fba2895b35792384646d59d27ef6589
+boss-auto-apply/content/content.js           240335  1aabe6a0c4da4d71f57e6e1b54a473345a861fb0d0e67bb106b6f8794b2a9fb8
+boss-auto-apply/content/bridge-inject.js        714  04af60b749350841966f94290afa6c6a3b4b8bbec46b27324753971d1e50d9d0
+boss-auto-apply/content/page-bridge.js         5167  9c7f9aa29a5052e7a8035949fb196016d21504db53b3c45f520c55a1ea630413
+boss-auto-apply/background/worker.js          10574  fc0cb6ad3a41f21dc7e5341fe499f601a22b2250fd37173d27e9391498878ddd
+boss-auto-apply/background/ai-core.js         14612  8ac33d727c6c49a08755b5e587078edba85fd126982a7884956dbdb3040cfd8c
+boss-auto-apply/popup/popup.html               1555  33b44a2932636840c0990986f5e831ded2cf144c96aec799f329e49eee5ac5a3
+boss-auto-apply/popup/popup.js                 7513  47e9ca79e2e3a07d7557bdda0b4ddf52e48a9212785cda14d0ead5c1df10cff8
+boss-auto-apply/popup/popup.css                2534  ee12117ea8ba5702addf40bee48a8d04d5acb088ead74232fecad0a75d5e6f24
+boss-auto-apply/records/records.html           2911  d39db2c629273167623334f6bdce1a5bb02be0ef064dcca662aea1cf1b8bf92b
+boss-auto-apply/records/records.js            12772  8dd53e751f86a0c957151481f34bea6ef4c833e9430031a67511eaa8eb224355
+boss-auto-apply/records/records.css            6614  c11b1c3cc615066567bd2b851eb83c7d05717e7d38519b6f9a2922d9ce9e709f
+
+完整源码、回归测试与分层排障文档见项目 GitHub 仓库。
+许可：MIT，见 LICENSE。

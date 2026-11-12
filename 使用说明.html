@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>BOSS 直聘批量投递助手 · 网吧使用说明 v1.12.0</title>
+<style>
+  :root { --ink:#1f2933; --muted:#5b6b7b; --line:#dde5ec; --bg:#f6f8fa; --card:#fff;
+          --blue:#0d7ea8; --blue-soft:#e8f4f9; --red:#c0392b; --red-soft:#fdeceb;
+          --amber:#a86400; --amber-soft:#fff5e0; --green:#1e7a4c; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:28px 16px 60px; background:var(--bg); color:var(--ink);
+         font:15px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:880px; margin:0 auto; }
+  header { background:var(--card); border:1px solid var(--line); border-radius:14px;
+           padding:26px 30px; margin-bottom:18px; }
+  h1 { margin:0 0 6px; font-size:25px; letter-spacing:.3px; }
+  .sub { color:var(--muted); font-size:14px; }
+  .badge { display:inline-block; background:var(--blue-soft); color:var(--blue);
+           border-radius:6px; padding:2px 9px; font-size:12px; margin-right:6px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:14px;
+            padding:22px 30px; margin-bottom:16px; }
+  h2 { font-size:18px; margin:0 0 14px; display:flex; align-items:center; gap:10px; }
+  .num { width:26px; height:26px; flex:0 0 26px; border-radius:50%; background:var(--blue);
+         color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  h3 { font-size:15px; margin:18px 0 8px; }
+  p { margin:8px 0; }
+  code { background:#eef2f5; border:1px solid #e2e8ee; border-radius:4px;
+         padding:1px 5px; font:13px Consolas,"Courier New",monospace; }
+  pre { background:#f3f6f8; border:1px solid var(--line); border-radius:8px;
+        padding:12px 14px; overflow:auto; font:13px/1.6 Consolas,"Courier New",monospace; }
+  ol,ul { margin:8px 0; padding-left:22px; }
+  li { margin:5px 0; }
+  table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+  th,td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:#f2f6f9; }
+  .warn { background:var(--red-soft); border-left:4px solid var(--red);
+          padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; }
+  .warn strong { color:var(--red); }
+  .note { background:var(--amber-soft); border-left:4px solid var(--amber);
+          padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; }
+  .ok { background:#eaf7ef; border-left:4px solid var(--green);
+        padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; }
+  .check { list-style:none; padding-left:0; }
+  .check li { padding:7px 10px; border-bottom:1px dashed var(--line); }
+  .check label { cursor:pointer; }
+  .check input { margin-right:9px; transform:scale(1.15); }
+  .kbd { border:1px solid #c9d4de; border-bottom-width:2px; border-radius:4px;
+         padding:1px 5px; background:#fff; font-size:13px; }
+  footer { color:var(--muted); font-size:13px; text-align:center; padding:12px; }
+  .small { color:var(--muted); font-size:13px; }
+  @media print { body { background:#fff; padding:0; } section,header { break-inside:avoid;
+    box-shadow:none; border:1px solid #ccc; } .wrap { max-width:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>BOSS 直聘 · 批量投递助手</h1>
+  <div class="sub">
+    <span class="badge">v1.12.0</span>
+    <span class="badge">Chrome 扩展 / MV3</span>
+    <span class="badge">解压即用 · 无需安装</span>
+    网吧 / 公共电脑使用说明
+  </div>
+  <p class="small" style="margin-top:14px">
+    这个包里只有<strong>扩展本体</strong>和这份说明，没有测试文件、源码工程文件或任何个人数据。
+    第一次使用请按顺序做一遍，尤其别跳过第 6 步「离机前清理」。
+  </p>
+</header>
+
+<div class="warn">
+  <strong>⚠ 这是公共电脑，先把这三条记住</strong>
+  <ol style="margin-bottom:0">
+    <li><strong>不要填 AI API Key</strong>（默认是关的，保持关闭）——填了就等于把密钥留在网吧电脑里。</li>
+    <li><strong>不要让浏览器记住 BOSS 账号密码</strong>，登录时取消「记住我」「保存密码」。</li>
+    <li><strong>走之前必须导出记录并移除扩展</strong>，见第 6 步的勾清单。网吧可能有还原卡，也可能没有，别赌。</li>
+  </ol>
+</div>
+
+<section>
+  <h2><span class="num">0</span> 出发前：把这个包带上</h2>
+  <p>压缩包 <code>boss-auto-apply-v1.12.0-网吧便携版.zip</code> 传到你能下载的地方：</p>
+  <ul>
+    <li>U 盘 / 移动硬盘（最稳，也方便把投递记录带回来）</li>
+    <li>网盘、微信「文件传输助手」、自己的邮箱附件（<strong>不要发到公共群</strong>）</li>
+  </ul>
+  <p class="small">包里没有 exe，不会触发网吧的安全软件；只是一个 zip + 一个文件夹。</p>
+  <div class="ok"><strong>建议：</strong>先在自己电脑上按第 2–4 步试一遍，确认面板能弹出来、筛选条件填对了，再去网吧直接用。省得在计时收费的机器上调试。</div>
+</section>
+
+<section>
+  <h2><span class="num">1</span> 在网吧解压</h2>
+  <ol>
+    <li>下载 zip，右键 → <strong>全部解压</strong>（Windows 自带即可，不需要 WinRAR）。</li>
+    <li>解压到一个好找的目录，例如 <code>D:\boss-auto-apply\</code>。</li>
+    <li>打开后应该能看到 <code>manifest.json</code>、<code>content\</code>、<code>background\</code>、<code>popup\</code>、<code>records\</code> 和这份说明。</li>
+  </ol>
+  <div class="note"><strong>网吧还原卡：</strong>很多网吧重启后会清掉 D 盘新文件。这其实是好事（隐私自动没了），但意味着<strong>每次上机都要重新解压</strong>，而且这台机器上不会保留你上次的配置和投递记录。所以每次都要把记录导出带走。</div>
+  <p class="small">要加载的是<strong>包含 manifest.json 的那一层文件夹</strong>，不是 zip 本身，也不是它的上一层。</p>
+</section>
+
+<section>
+  <h2><span class="num">2</span> 装进 Chrome（不用商店、不用登录）</h2>
+  <ol>
+    <li>打开 Chrome，地址栏输入 <code>chrome://extensions</code> 回车。</li>
+    <li>右上角打开 <strong>开发者模式</strong> 开关。</li>
+    <li>点左上角 <strong>加载已解压的扩展程序</strong>。</li>
+    <li>选中第 1 步解压出来的文件夹（里面直接能看到 <code>manifest.json</code>），点「选择文件夹」。</li>
+    <li>卡片出现、版本号显示 <strong>1.12.0</strong> 即成功。Edge 用 <code>edge://extensions</code>，步骤一样。</li>
+  </ol>
+  <div class="note"><strong>如果提示「程序包无效」或清单报错：</strong>多半是选错了层级（选到了 zip 或外层文件夹）。回到第 1 步确认目录里直接有 <code>manifest.json</code>。<br>
+  <strong>如果开发者模式是灰的：</strong>这台机器被管理策略锁了，换一台机器或用便携版 Chrome。</div>
+  <p><strong>刷新已经打开的 BOSS 页面</strong>，右下角出现青色圆形「投」按钮就对了。不刷新不会注入。</p>
+</section>
+
+<section>
+  <h2><span class="num">3</span> 登录与配置</h2>
+  <ol>
+    <li>打开 BOSS 直聘网页版并登录。<strong>取消「记住我」「保存密码」</strong>。</li>
+    <li>先<strong>在 BOSS 自己的搜索框</strong>里粗筛一次（城市、岗位关键词），插件只在你当前这个列表页里工作。</li>
+    <li>点右下角「投」展开面板，按需填写：
+      <table>
+        <tr><th>项目</th><th>建议</th></tr>
+        <tr><td>期望城市</td><td>只填一个，例如 <code>杭州</code>；这是硬条件，写错会全被跳过</td></tr>
+        <tr><td>薪资 / 公司规模 / 融资 / 发布时间</td><td>不确定就留空或关掉，别叠太多条件</td></tr>
+        <tr><td>专业</td><td>直接写你的专业，例如「计算机相关」；JD 明确限专业且对不上会跳过</td></tr>
+        <tr><td>编程语言</td><td>勾你真正会的；没勾的不要硬投</td></tr>
+        <tr><td>证书</td><td>有就勾上，否则「必须持有 XX 证」的岗位会被拦</td></tr>
+        <tr><td>关键词</td><td>「必含词」默认关；投不出去时先检查是不是被它卡住</td></tr>
+        <tr><td>每次上限 / 间隔</td><td>网吧建议先 <code>30</code> 份、间隔保持 <code>8–15 秒</code>，别一上来跑满 150</td></tr>
+        <tr><td>AI 语义判断</td><td><strong>保持关闭</strong>。公共电脑上不要填任何 API Key</td></tr>
+      </table>
+    </li>
+    <li>网慢的话把「详情等待」「滚动等待」「JD 每步等待」调大一点，插件要等右侧详情真正切成当前岗位才会判断。</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="num">4</span> 先试跑，再正式投</h2>
+  <ol>
+    <li>勾<strong>演练模式</strong>（只列名单不点击）跑一小段，看面板「跳过原因统计」是不是符合预期。</li>
+    <li>确认没有「一个也投不出去」或「投了别的城市」之后，关掉演练模式。</li>
+    <li>点<strong>开始投递</strong>。它会自己逐个点开岗位卡片、滚动读完 JD、以「去APP与BOSS随时沟通」为截止判断，然后点「立即沟通」。</li>
+    <li>随时可以按 <span class="kbd">ESC</span> 或面板按钮中断。</li>
+  </ol>
+  <div class="ok"><strong>正常表现：</strong>日志里能看到当前岗位名、读到的 JD 长度、跳过原因；投完会自动点掉「留在此页」弹窗，继续下一张卡。如果一直停在同一个岗位，把等待时间调大。</div>
+</section>
+
+<section>
+  <h2><span class="num">5</span> 把记录带走</h2>
+  <ol>
+    <li>点扩展弹窗或面板里的<strong>投递记录</strong>，打开记录表。</li>
+    <li>点<strong>导出 CSV</strong>，保存到 <strong>U 盘 / 你自己的网盘</strong>，不要留在网吧硬盘上。</li>
+    <li>文件名建议带日期，例如 <code>投递记录-2026-11-12.csv</code>。CSV 带 BOM，Excel / WPS 直接打开不乱码。</li>
+  </ol>
+  <p class="small">记录里有你投过的公司和岗位，属于个人数据。导出后本机那份就没用了。</p>
+</section>
+
+<section>
+  <h2><span class="num">6</span> 离机前清理（逐项勾）</h2>
+  <div class="warn"><strong>别直接下机走人。</strong>扩展的配置和投递记录存在这个 Chrome 用户配置文件里，没有还原卡的机器会一直留着。</div>
+  <ul class="check">
+    <li><label><input type="checkbox"> 投递记录 CSV 已导出到自己的 U 盘 / 网盘，并确认文件能打开</label></li>
+    <li><label><input type="checkbox"> 在 BOSS 网页上<strong>退出登录</strong></label></li>
+    <li><label><input type="checkbox"> 到 <code>chrome://extensions</code> 找到这张卡片，点<strong>移除</strong>（移除扩展会连带清掉它保存在浏览器里的数据）</label></li>
+    <li><label><input type="checkbox"> 清掉 Chrome 的浏览数据 / Cookie（至少清「过去 1 小时」或本次会话）</label></li>
+    <li><label><input type="checkbox"> 删除解压出来的整个文件夹，并清空回收站</label></li>
+    <li><label><input type="checkbox"> 关闭所有 Chrome 窗口；如果是包间/固定机位，重启一下机器更保险</label></li>
+    <li><label><input type="checkbox"> 确认浏览器没有保存过密码、没有填过 AI API Key</label></li>
+  </ul>
+</section>
+
+<section>
+  <h2>常见问题</h2>
+  <table>
+    <tr><th>现象</th><th>怎么办</th></tr>
+    <tr><td>右下角没有「投」按钮</td><td>装完扩展后<strong>刷新 BOSS 页面</strong>；确认当前网址是 <code>zhipin.com</code>；确认扩展卡片没被停用</td></tr>
+    <tr><td>一个也投不出去</td><td>看面板「跳过原因统计」，哪个原因最多就先关掉对应的硬条件（常见：城市写错、专业填太窄、必含词被打开、最低分太高）</td></tr>
+    <tr><td>一直提示找不到沟通按钮</td><td>网慢导致详情没切完，把「详情等待」「滚动等待」调大；确认不是只滚不点</td></tr>
+    <tr><td>薪资显示方框 / 「薪资加密」</td><td>BOSS 的字体加密，插件会尽量还原；还原不了会明写「薪资加密」，不影响其它条件判断</td></tr>
+    <tr><td>改了配置没生效</td><td>面板配置是即时保存的；如果改的是 <code>manifest.json</code>，必须回 <code>chrome://extensions</code> 点「重新加载」再刷新页面</td></tr>
+    <tr><td>投完弹窗卡住</td><td>插件会自动点「留在此页」；若 BOSS 改了弹窗文案，先手动关掉弹窗再继续</td></tr>
+    <tr><td>网吧 Chrome 版本很老</td><td>MV3 扩展需要 Chrome 88+；太老就换台机器或用便携版 Chrome</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>这个包里有什么</h2>
+  <pre>boss-auto-apply/
+├── manifest.json          扩展清单（Chrome MV3）
+├── 使用说明.html          本文件，双击即可看
+├── 使用说明.md            纯文字版
+├── MANIFEST.txt           文件清单 + 校验值
+├── LICENSE                MIT 许可证
+├── background/            后台：记录、去重、可选 AI 代理
+├── content/               面板 + 筛选引擎 + 页面数据桥
+├── popup/                 点扩展图标的小窗
+└── records/               投递记录表与 CSV 导出</pre>
+  <p class="small">测试文件、回归断言、分层排障文档、CI 配置都在 GitHub 仓库里，这个便携包不含它们——网吧用不上，也不该把工程文件带来带去。</p>
+</section>
+
+<footer>
+  MIT License · v1.12.0 · 自动化操作有账号风险，建议先小量试跑；使用前请自行确认目标网站的服务条款。
+</footer>
+
+</div>
+</body>
+</html>
