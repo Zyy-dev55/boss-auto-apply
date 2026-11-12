@@ -1,4 +1,4 @@
-BOSS 直聘 · 批量投递助手 便携包文件清单
+﻿BOSS 直聘 · 批量投递助手 便携包文件清单
 版本: 1.12.0
 打包时间: 2026-11-12 09:02
 文件数: 15（不含本清单）
@@ -27,5 +27,5 @@ boss-auto-apply/records/records.html           2911  d39db2c629273167623334f6bdc
 boss-auto-apply/records/records.js            12772  8dd53e751f86a0c957151481f34bea6ef4c833e9430031a67511eaa8eb224355
 boss-auto-apply/records/records.css            6614  c11b1c3cc615066567bd2b851eb83c7d05717e7d38519b6f9a2922d9ce9e709f
 
-完整源码、回归测试与分层排障文档见项目 GitHub 仓库。
+完整源码见项目 GitHub 仓库（本包为精简便携版，只含运行必需文件）。
 许可：MIT，见 LICENSE。
